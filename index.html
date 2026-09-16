@@ -3,7 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FAVOUR RESTORATION WORD OF GOD MINISTRIES</title>
+  <title>FAVOUR RESTORATION WORD OF GOD MINISTRIES | Nairobi, Kenya</title>
+  <meta name="description" content="A vibrant Evangelical church in Nairobi, Kenya. Join us Sundays at 8:30 AM and 10:30 AM for worship, the Word, and a community that feels like family." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Favour Restoration Word of God Ministries" />
+  <meta property="og:description" content="A place to belong, believe and become. Join our Nairobi church family for worship, teaching, and community." />
+  <meta property="og:image" content="church altar new.jpg" />
+  <meta property="og:locale" content="en_KE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Favour Restoration Word of God Ministries" />
+  <meta name="twitter:description" content="A place to belong, believe and become. Join our Nairobi church family for worship, teaching, and community." />
+  <link rel="icon" href="church logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="church logo.png" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -12,8 +23,23 @@
 
   <!-- LOADER -->
   <div id="loader">
-    <div class="loader-cross">✝</div>
-    <div class="loader-text">FAVOUR RESTORATION WORD OF GOD MINISTRIES</div>
+    <div class="loader-mark">
+      <span class="loader-ring loader-ring-one"></span>
+      <span class="loader-ring loader-ring-two"></span>
+      <div class="loader-logo-plate"><img src="church logo.png" alt="Favour Restoration Word of God Ministries logo" /></div>
+    </div>
+    <div class="loader-portrait">
+      <img src="rev maureen.png" alt="Rev Maureen Charles welcomes you to Favour Restoration Word of God Ministries" onerror="this.onerror=null;this.src='youth image.jpg'" />
+    </div>
+    <div class="loader-text">Are you ready?</div>
+    <p class="loader-welcome">Welcome to our church website.<br>Today, we are glad you are here.</p>
+    <div class="loader-gallery" aria-label="Scenes from our church">
+      <img src="church altar new.jpg" alt="Church sanctuary" />
+      <img src="church landscape.jpg" alt="Church grounds" />
+      <img src="church altar.jpeg" alt="Church worship space" />
+    </div>
+    <div class="loader-status">Preparing your welcome</div>
+    <div class="loader-progress"><span></span></div>
   </div>
 
   <!-- CURSOR -->
@@ -24,12 +50,12 @@
   <nav id="navbar">
     <div class="nav-inner">
       <a href="#home" class="nav-logo">
-        <span class="logo-cross">✝</span>
-        <span>FAVOUR RESTORATION WORD OF GOD MINISTRIES</span>
+        <span class="nav-logo-plate"><img src="church logo.png" alt="Favour Restoration Word of God Ministries" /></span>
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#ministries" class="nav-link">Ministries</a></li>
         <li><a href="#sermons" class="nav-link">Sermons</a></li>
         <li><a href="#events" class="nav-link">Events</a></li>
         <li><a href="#leadership" class="nav-link">Leadership</a></li>
@@ -37,14 +63,15 @@
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
       <button class="nav-cta" onclick="scrollToSection('contact')">Plan a Visit</button>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
-    <!-- Mobile Menu -->
+    <!-- Mobile Menu --> 
     <div class="mobile-menu" id="mobileMenu">
       <a href="#about" class="mobile-link">About</a>
       <a href="#services" class="mobile-link">Services</a>
+      <a href="#ministries" class="mobile-link">Ministries</a>
       <a href="#sermons" class="mobile-link">Sermons</a>
       <a href="#events" class="mobile-link">Events</a>
       <a href="#leadership" class="mobile-link">Leadership</a>
@@ -56,7 +83,7 @@
   <!-- HERO -->
   <section id="home" class="hero">
     <div class="hero-bg">
-      <img class="hero-image" src="church altar.jpeg" alt="Sunlight inside a church sanctuary" onerror="this.onerror=null;this.src='youth image.jpg'" />
+      <img class="hero-image" src="church altar new.jpg" alt="Sunlight inside a church sanctuary" onerror="this.onerror=null;this.src='youth image.jpg'" />
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
@@ -65,15 +92,21 @@
     <div class="hero-content">
       <div class="hero-badge reveal-up">
         <span class="badge-dot"></span>
-        All Are Welcome · Come As You Are
+        FAVOUR RESTORATION WORD OF GOD MINISTRIES
       </div>
+      <div class="hero-kicker reveal-up"><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya <span></span> <i class="fa-regular fa-clock"></i> Sundays at 8:30 AM &amp; 10:30 AM</div>
       <h1 class="hero-title reveal-up">
-        Where <em>Faith</em><br>Comes Alive
+        A place to <em>belong</em>,<br>believe &amp; become
       </h1>
       <p class="hero-sub reveal-up">
         A vibrant Evangelical community rooted in love, truth, and purpose —
         transforming lives through the Gospel of Jesus Christ.
       </p>
+      <div class="hero-promise reveal-up">
+        <span><i class="fa-solid fa-heart"></i> Christ-centred</span>
+        <span><i class="fa-solid fa-hands-holding-circle"></i> Family-minded</span>
+        <span><i class="fa-solid fa-seedling"></i> Mission-driven</span>
+      </div>
       <div class="hero-btns reveal-up">
         <button class="btn-primary" onclick="scrollToSection('services')">
           Join Us This Sunday <i class="fa-solid fa-arrow-right"></i>
@@ -103,10 +136,39 @@
           <div class="stat-label">Services Weekly</div>
         </div>
       </div>
+      <div class="next-service-countdown reveal-up" id="nextServiceCountdown" aria-label="Countdown to next service">
+        <i class="fa-solid fa-hourglass-half"></i>
+        <span class="countdown-label">Next service in</span>
+        <div class="countdown-units">
+          <div class="countdown-unit"><span id="cdDays">00</span><small>days</small></div>
+          <div class="countdown-unit"><span id="cdHours">00</span><small>hrs</small></div>
+          <div class="countdown-unit"><span id="cdMins">00</span><small>min</small></div>
+          <div class="countdown-unit"><span id="cdSecs">00</span><small>sec</small></div>
+        </div>
+      </div>
     </div>
     <div class="scroll-hint">
       <span>Scroll</span>
       <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">Changed Lives</div>
+        <h2 class="section-title">Stories From Our Family</h2>
+        <p class="section-sub">A few words from members whose lives have been touched here.</p>
+      </div>
+      <div class="testimonial-carousel fade-in">
+        <div class="testimonial-track" id="testimonialTrack">
+          <blockquote class="testimonial-slide"><i class="fa-solid fa-quote-left testimonial-quote-icon"></i><p>I walked in during the hardest season of my life and found a family, not a crowd. The prayer team stood with me until I could stand on my own again.</p><footer><strong>Grace W.</strong><span>Member since 2021</span></footer></blockquote>
+          <blockquote class="testimonial-slide"><i class="fa-solid fa-quote-left testimonial-quote-icon"></i><p>The teaching here is honest and practical. I have grown more in two years at FRM than in the ten years before I found this church.</p><footer><strong>Daniel K.</strong><span>Men's Fellowship</span></footer></blockquote>
+          <blockquote class="testimonial-slide"><i class="fa-solid fa-quote-left testimonial-quote-icon"></i><p>My children love the youth ministry, and I love watching them grow in confidence and faith alongside kids who genuinely care for one another.</p><footer><strong>Esther N.</strong><span>Parent and volunteer</span></footer></blockquote>
+        </div>
+        <div class="testimonial-controls"><button id="testimonialPrev" aria-label="Previous testimonial"><i class="fa-solid fa-arrow-left"></i></button><div class="testimonial-dots" id="testimonialDots"></div><button id="testimonialNext" aria-label="Next testimonial"><i class="fa-solid fa-arrow-right"></i></button></div>
+      </div>
     </div>
   </section>
 
@@ -153,18 +215,36 @@
             <li><span class="val-icon"><i class="fa-solid fa-check"></i></span>Raising the next generation of leaders</li>
           </ul>
           <div class="about-cards-row">
-            <div class="mini-card">
-              <div class="mini-card-icon"><i class="fa-solid fa-eye"></i></div>
+            <div class="mini-card vision-card">
+              <img class="mini-card-image" src="vision.jpg" alt="Vision inspired by Proverbs 3" />
+              <div class="mini-card-body">
               <strong>Vision</strong>
               <p>Transform lives through the power of the Gospel</p>
+              </div>
             </div>
-            <div class="mini-card">
-              <div class="mini-card-icon"><i class="fa-solid fa-bullseye"></i></div>
+            <div class="mini-card mission-card">
+              <img class="mini-card-image" src="mission.jpg" alt="People worshipping together in unity" />
+              <div class="mini-card-body">
               <strong>Mission</strong>
               <p>Reach, teach, and release every believer</p>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section faq">
+    <div class="container">
+      <div class="section-header fade-in"><div class="section-tag">Good to Know</div><h2 class="section-title">Frequently Asked Questions</h2><p class="section-sub">Everything you might want to know before your first visit.</p></div>
+      <div class="faq-list fade-in">
+        <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>What should I wear?</span><i class="fa-solid fa-plus faq-icon"></i></button><div class="faq-answer"><p>Come as you are. Some dress up, some come casual. What matters to us is that you are here.</p></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Is there something for my children?</span><i class="fa-solid fa-plus faq-icon"></i></button><div class="faq-answer"><p>Yes. We have a safe, joyful children's programme during our Sunday Celebration service.</p></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Is there parking available?</span><i class="fa-solid fa-plus faq-icon"></i></button><div class="faq-answer"><p>Yes, on-site parking is available for Sunday services. A team member will help direct you.</p></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>How long is a typical service?</span><i class="fa-solid fa-plus faq-icon"></i></button><div class="faq-answer"><p>Our services typically run about 90 minutes, including worship, the message, and prayer.</p></div></div>
+        <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>How do I get involved in a ministry?</span><i class="fa-solid fa-plus faq-icon"></i></button><div class="faq-answer"><p>Use our contact form and select Volunteer or Ministry Information. Our team will help you find the right place to serve.</p></div></div>
       </div>
     </div>
   </section>
@@ -204,6 +284,112 @@
     </div>
   </section>
 
+  <!-- MINISTRIES & FIRST VISIT -->
+  <section id="ministries" class="section ministries">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">Find Your Place</div>
+        <h2 class="section-title">There is room for you here</h2>
+        <p class="section-sub">Come as you are and grow with people who are learning, serving, worshipping, and walking with Jesus together.</p>
+      </div>
+      <div class="ministries-layout">
+        <div class="ministry-grid">
+          <article class="ministry-card fade-in">
+            <img src="youth image.jpg" alt="Young people gathered for church youth ministry" />
+            <div class="ministry-card-body"><span>Youth</span><h3>Next Generation</h3><p>A place for young people to build faith, friendships, confidence, and purpose.</p><a href="#contact" data-contact-topic="Volunteer">Get involved <i class="fa-solid fa-arrow-right"></i></a></div>
+          </article>
+          <article class="ministry-card fade-in">
+            <img src="mum church.jpeg" alt="Women worshipping together at church" />
+            <div class="ministry-card-body"><span>Women</span><h3>Women of Grace</h3><p>Encouragement, prayer, and fellowship for women in every season of life.</p><a href="#contact" data-contact-topic="Ministry Information">Learn more <i class="fa-solid fa-arrow-right"></i></a></div>
+          </article>
+          <article class="ministry-card fade-in">
+            <img src="church altar.jpeg" alt="Church sanctuary prepared for worship" />
+            <div class="ministry-card-body"><span>Families</span><h3>Children &amp; Families</h3><p>Safe, joyful spaces where families can worship and grow together.</p><a href="#contact" data-contact-topic="Plan a Visit">Plan your visit <i class="fa-solid fa-arrow-right"></i></a></div>
+          </article>
+        </div>
+        <aside class="visit-guide fade-in">
+          <span class="visit-kicker"><i class="fa-solid fa-sparkles"></i> Your first visit</span>
+          <h3>Come with confidence.</h3>
+          <p>We will help you find your way, meet a friendly face, and settle in without pressure.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i><span><strong>Arrive as you are</strong><small>Dress comfortably. You belong here.</small></span></li>
+            <li><i class="fa-solid fa-check"></i><span><strong>Bring your family</strong><small>There is a place for every generation.</small></span></li>
+            <li><i class="fa-solid fa-check"></i><span><strong>Stay connected</strong><small>Meet the team before you leave.</small></span></li>
+          </ul>
+          <a class="btn-primary" href="#contact" data-contact-topic="Plan a Visit">Plan a visit <i class="fa-solid fa-arrow-right"></i></a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAYER & CARE -->
+  <section class="care-section section">
+    <div class="container care-grid">
+      <div class="care-image-wrap fade-in">
+        <img src="church altar new.jpg" alt="Welcoming worship space at Favour Restoration Word of God Ministries" />
+        <div class="care-quote">
+          <i class="fa-solid fa-quote-left"></i>
+          <p>Come to me, all you who are weary and burdened, and I will give you rest.</p>
+          <span>Matthew 11:28</span>
+        </div>
+      </div>
+      <div class="care-content fade-in">
+        <div class="section-tag">You Are Not Alone</div>
+        <h2 class="section-title">A church that<br><em>prays with you</em></h2>
+        <p class="section-sub">Whatever season you are walking through, our pastoral care team is ready to stand with you in prayer, encouragement, and practical support.</p>
+        <div class="care-actions">
+          <a class="care-action" href="#contact" data-contact-topic="Prayer Request"><span class="care-action-icon"><i class="fa-solid fa-hands-praying"></i></span><span><strong>Request prayer</strong><small>Share what is on your heart</small></span><i class="fa-solid fa-arrow-right"></i></a>
+          <a class="care-action" href="#contact" data-contact-topic="Plan a Visit"><span class="care-action-icon"><i class="fa-solid fa-door-open"></i></span><span><strong>Plan your first visit</strong><small>We will help you feel at home</small></span><i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING PROJECTS -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">A Vision in Motion</div>
+        <h2 class="section-title">Upcoming Church Projects</h2>
+        <p class="section-sub">We are building spaces and initiatives that will strengthen worship, discipleship, and community transformation across our church family.</p>
+      </div>
+
+      <div class="projects-showcase fade-in">
+        <div class="project-mini-grid">
+          <article class="project-mini-card">
+            <img src="church landscape.jpg" alt="Community outreach centre" onerror="this.onerror=null;this.src='church altar.jpeg'" />
+            <div class="project-mini-body">
+              <span>Community</span>
+              <h4>Outreach Centre</h4>
+              <p>Food, counselling, and discipleship support for families in our community.</p>
+              <button class="project-mini-cta" onclick="scrollToSection('contact')">Ask About Project <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </article>
+
+          <article class="project-mini-card">
+            <img src="youth image.jpg" alt="Youth and media hub" onerror="this.onerror=null;this.src='church altar.jpeg'" />
+            <div class="project-mini-body">
+              <span>Youth &amp; Media</span>
+              <h4>Youth Hub</h4>
+              <p>Leadership training, worship, and media ministry for the next generation.</p>
+              <button class="project-mini-cta" onclick="scrollToSection('contact')">Ask About Project <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </article>
+
+          <article class="project-mini-card">
+            <img src="church altar.jpeg" alt="Prayer and healing centre" onerror="this.onerror=null;this.src='church landscape.jpg'" />
+            <div class="project-mini-body">
+              <span>Prayer</span>
+              <h4>Healing Centre</h4>
+              <p>A space for pastoral care, prayer rooms, and restoration programs.</p>
+              <button class="project-mini-cta" onclick="scrollToSection('contact')">Ask About Project <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SERMONS -->
   <section id="sermons" class="section sermons">
     <div class="container">
@@ -212,8 +398,10 @@
         <h2 class="section-title light">Fresh Word, Every Week</h2>
         <p class="section-sub light">Catch up on recent messages anytime, anywhere.</p>
       </div>
-      <div class="sermons-grid">
-        <div class="sermon-card fade-in" data-index="0">
+      <div class="sermons-layout">
+        <div class="sermons-column">
+          <div class="sermons-grid">
+            <div class="sermon-card fade-in" data-index="0">
           <div class="sermon-series">Faith Foundations · Current Series</div>
           <h3>Walking in the Promises of God</h3>
           <p>Stand firm on God's Word when circumstances speak otherwise — a faith-building message for every season.</p>
@@ -226,8 +414,8 @@
               <i class="fa-solid fa-play"></i>
             </button>
           </div>
-        </div>
-        <div class="sermon-card fade-in" data-index="1">
+          </div>
+          <div class="sermon-card fade-in" data-index="1">
           <div class="sermon-series">Faith Foundations</div>
           <h3>The Power of a Praying Church</h3>
           <p>What happens when God's people come together in unified, passionate intercession. Revival starts in the prayer room.</p>
@@ -240,8 +428,8 @@
               <i class="fa-solid fa-play"></i>
             </button>
           </div>
-        </div>
-        <div class="sermon-card fade-in" data-index="2">
+          </div>
+          <div class="sermon-card fade-in" data-index="2">
           <div class="sermon-series">Faith Foundations</div>
           <h3>Identity: Who God Says You Are</h3>
           <p>Before the world tells you who you are, God already wrote your story. Discover your true identity in Christ.</p>
@@ -254,29 +442,18 @@
               <i class="fa-solid fa-play"></i>
             </button>
           </div>
+            </div>
+          </div>
+          <div class="section-cta fade-in">
+            <button class="btn-outline-light" onclick="openSermons()">View All Sermons <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
         </div>
-      </div>
-      <div class="section-cta fade-in">
-        <button class="btn-outline-light" onclick="openSermons()">View All Sermons <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
   </section>
 
   <!-- EVENTS -->
   <section id="events" class="section events">
-    <div class="event-card fade-in">
-  <!-- ADD THIS IMAGE -->
-  <img src="church landscape.jpg" alt="Youth Ignite Conference"
-       style="width:100%; height:160px; object-fit:cover;
-              border-radius:14px; margin-bottom:1rem;" />
-  <div style="display:flex; gap:1.5rem; align-items:flex-start;">
-    <div class="event-date-box">
-      <span class="event-day">01</span>
-      <span class="event-month">AUG</span>
-    </div>
-    <div class="event-info"> ... </div>
-  </div>
-</div>
     <div class="container">
       <div class="section-header fade-in">
         <div class="section-tag">Upcoming</div>
@@ -285,7 +462,7 @@
       </div>
       <div class="events-grid">
         <div class="event-card fade-in">
-          <img class="event-image" src="youth image.jpg" alt="Young people gathered at a church youth conference" />
+          <img class="event-image event-image-local" src="youth image.jpg" alt="Young people gathered at a church youth conference" />
           <div class="event-date-box">
             <span class="event-day">01</span>
             <span class="event-month">AUG</span>
@@ -310,32 +487,6 @@
             <div class="event-meta"><i class="fa-solid fa-location-dot"></i> Eastlands Centre &nbsp;·&nbsp; <i class="fa-regular fa-clock"></i> 8:00 AM</div>
           </div>
         </div>
-        <div class="event-card fade-in">
-          <img class="event-image" src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Couple spending time together at a retreat" onerror="this.onerror=null;this.src='youth image.jpg'" />
-          <div class="event-date-box">
-            <span class="event-day">15</span>
-            <span class="event-month">JUN</span>
-          </div>
-          <div class="event-info">
-            <span class="event-tag">Marriage</span>
-            <h3>Marriage Enrichment Retreat</h3>
-            <p>A weekend getaway for couples to reconnect, realign, and reignite with biblical tools.</p>
-            <div class="event-meta"><i class="fa-solid fa-location-dot"></i> Naivasha Retreat &nbsp;·&nbsp; <i class="fa-regular fa-clock"></i> 2:00 PM</div>
-          </div>
-        </div>
-        <div class="event-card fade-in">
-          <img class="event-image" src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="People gathered for prayer" onerror="this.onerror=null;this.src='youth image.jpg'" />
-          <div class="event-date-box">
-            <span class="event-day">22</span>
-            <span class="event-month">JUN</span>
-          </div>
-          <div class="event-info">
-            <span class="event-tag">Prayer</span>
-            <h3>21 Days of Prayer & Fasting</h3>
-            <p>Corporate fast for breakthrough — daily 5 AM sessions across all campuses.</p>
-            <div class="event-meta"><i class="fa-solid fa-location-dot"></i> All Campuses &nbsp;·&nbsp; <i class="fa-regular fa-clock"></i> 5:00 AM</div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -356,8 +507,8 @@
             <span class="leader-role">Senior Pastor &amp; Founder</span>
             <p>Over 10 years of ministry, Pastor Maureen carries a vision for a church that transforms nations through the Gospel of Christ.</p>
             <div class="leader-socials">
-              <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#contact" data-contact-topic="General Inquiry" aria-label="Twitter contact"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://www.instagram.com/frm_church_kabiria?igsi=MXFxNjdsejU5MnQ3dg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -365,11 +516,11 @@
           <div class="leader-avatar" style="--av-color1:#2E1F6F;--av-color2:#1A1035;"><img src="dad church.png" alt="Sir Charles Kwena" onerror="this.onerror=null;this.src='youth image.jpg'" /></div>
           <div class="leader-info">
             <h3>Sir Charles Kwena</h3>
-            <span class="leader-role">Co-Pastor &amp;Mens Ministry</span>
-            <p>A teacher, author, and mother with a heart for raising godly men of purpose and unshakeable faith.</p>
+            <span class="leader-role">Our Mentor &amp; Men's Ministry</span>
+            <p>A trusted mentor and teacher who strengthens the church through wise counsel, faithful service, and a deep commitment to raising godly men and women of purpose.</p>
             <div class="leader-socials">
-              <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#contact" data-contact-topic="General Inquiry" aria-label="Twitter contact"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://www.instagram.com/frm_church_kabiria?igsi=MXFxNjdsejU5MnQ3dg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -380,8 +531,8 @@
             <span class="leader-role">Youth &amp; Church Chairman</span>
             <p>Passionate about the next generation, James leads one of the city's most vibrant youth movements with biblical depth.</p>
             <div class="leader-socials">
-              <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#contact" data-contact-topic="General Inquiry" aria-label="Twitter contact"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://www.instagram.com/frm_church_kabiria?igsi=MXFxNjdsejU5MnQ3dg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -402,28 +553,25 @@
         <h2 class="section-title light">Give &amp; Support the Mission</h2>
         <p class="section-sub light">Your generosity fuels the mission — from local outreach to global impact. Every shilling plants a seed of eternity.</p>
       </div>
-      <div class="give-selector fade-in">
-        <div class="give-tabs">
-          <button class="give-tab active" data-freq="one-time">One-Time</button>
-          <button class="give-tab" data-freq="monthly">Monthly</button>
+      <div class="give-details fade-in">
+        <div class="give-details-intro">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+          <div>
+            <span class="payment-eyebrow">Thank you for partnering with us</span>
+            <h3>Give securely through M-Pesa</h3>
+            <p>Use the details below to complete your gift directly from your M-Pesa menu or mobile app. We do not collect payment details on this website.</p>
+          </div>
         </div>
-        <div class="give-amounts">
-          <button class="amount-btn" data-amount="500">KES 500</button>
-          <button class="amount-btn active" data-amount="1000">KES 1,000</button>
-          <button class="amount-btn" data-amount="2500">KES 2,500</button>
-          <button class="amount-btn" data-amount="5000">KES 5,000</button>
-          <button class="amount-btn custom-btn" data-amount="custom">Custom</button>
+        <div class="give-detail-grid">
+          <div class="give-detail-item"><span>Paybill number</span><strong>3599821</strong></div>
+          <div class="give-detail-item"><span>Account name</span><strong>FAVOUR RESTORATION MINISTRY</strong></div>
         </div>
-        <div class="custom-input-wrap" id="customInputWrap">
-          <span>KES</span>
-          <input type="number" id="customAmount" placeholder="Enter amount" />
+        <div class="give-steps">
+          <div><span>1</span><p>Open M-Pesa and choose <strong>Lipa na M-Pesa</strong>.</p></div>
+          <div><span>2</span><p>Select <strong>Paybill</strong> and enter the number above.</p></div>
+          <div><span>3</span><p>Enter the account name, amount, and confirm the payment.</p></div>
         </div>
-        <button class="btn-primary give-btn">
-          Give Now <i class="fa-solid fa-heart"></i>
-        </button>
-        <p class="give-note">
-          <i class="fa-brands fa-android"></i> M-Pesa: Paybill <strong>123456</strong> · Account: <strong>FAVOUR</strong> &nbsp;|&nbsp; All giving is secure &amp; accountable.
-        </p>
+        <p class="give-note"><i class="fa-solid fa-circle-info"></i> Keep your confirmation message for your records. For help, contact the church through the form below.</p>
       </div>
     </div>
   </section>
@@ -441,7 +589,7 @@
               <div class="contact-icon-wrap"><i class="fa-solid fa-location-dot"></i></div>
               <div>
                 <strong>Location</strong>
-                <p>123 Ngong Road, Karen, Nairobi<br>P.O. Box 45678-00100</p>
+                <p>Favour Restoration Word of God Ministry<br>Nairobi, Kenya</p>
               </div>
             </div>
             <div class="contact-item">
@@ -466,8 +614,36 @@
               </div>
             </div>
           </div>
+          <div class="contact-map">
+            <div class="contact-map-heading">
+              <strong>Find us on Google Maps</strong>
+              <a href="https://maps.app.goo.gl/NkpXztnvQeoXt1Mu8" target="_blank" rel="noopener noreferrer">Get directions <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <iframe
+              title="Favour Restoration Word of God Ministry on Google Maps"
+              src="https://www.google.com/maps?q=-1.2923997,36.7238978&z=16&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
         <div class="contact-form-wrap fade-in">
+          <div class="welcome-video" role="img" aria-label="Animated church welcome character saying welcome to Favour Restoration Word of God Ministries">
+            <div class="welcome-video-glow"></div>
+            <div class="welcome-copy">
+              <span class="welcome-label"><i class="fa-solid fa-circle-play"></i> Welcome message</span>
+              <strong>We are glad<br>you are here.</strong>
+              <span>Come as you are.</span>
+            </div>
+            <div class="welcome-character" aria-hidden="true">
+              <div class="character-halo"></div>
+              <div class="character-head"><span class="character-hair"></span><span class="character-eye eye-left"></span><span class="character-eye eye-right"></span><span class="character-smile"></span></div>
+              <div class="character-body"><span class="character-collar"></span><span class="character-arm arm-left"></span><span class="character-arm arm-right"></span></div>
+            </div>
+            <div class="welcome-spark spark-one">+</div>
+            <div class="welcome-spark spark-two">✦</div>
+          </div>
           <form id="contactForm" class="contact-form" onsubmit="handleSubmit(event)">
             <div class="form-row">
               <div class="form-group">
@@ -496,6 +672,7 @@
                 <option>Ministry Information</option>
                 <option>Counselling</option>
                 <option>General Inquiry</option>
+                <option>Volunteer</option>
               </select>
             </div>
             <div class="form-group">
@@ -519,13 +696,13 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <div class="footer-logo">✝ FAVOUR RESTORATION WORD OF GOD MINISTRIES</div>
+          <div class="footer-logo"><img src="church logo.png" alt="Favour Restoration Word of God Ministries logo" /></div>
           <p>Spreading the Gospel. Building the Kingdom. Transforming Nations.</p>
           <div class="footer-socials">
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/19ZHsN7JVq/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/frm_church_kabiria?igsi=MXFxNjdsejU5MnQ3dg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://youtube.com/@favourrestorationministrie5146?si=BQVLKWd8tYjKjgIQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" aria-label="X/Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#contact" data-contact-topic="General Inquiry" aria-label="X/Twitter contact"><i class="fa-brands fa-x-twitter"></i></a>
           </div>
         </div>
         <div class="footer-links-col">
@@ -534,25 +711,27 @@
           <a href="#services">Services</a>
           <a href="#sermons">Sermons</a>
           <a href="#events">Events</a>
+          <a href="#faq">FAQ</a>
         </div>
         <div class="footer-links-col">
           <h4>Ministries</h4>
-          <a href="#">Youth Ministry</a>
-          <a href="#">Women of Grace</a>
-          <a href="#">Men's Fellowship</a>
-          <a href="#">Children's Church</a>
+          <a href="#ministries">Find Your Place</a>
+          <a href="#events">Youth Ministry</a>
+          <a href="#leadership">Women of Grace</a>
+          <a href="#leadership">Men's Fellowship</a>
+          <a href="#services">Children's Church</a>
         </div>
         <div class="footer-links-col">
           <h4>Connect</h4>
           <a href="#give">Give Online</a>
           <a href="#contact">Contact Us</a>
-          <a href="#">Prayer Request</a>
-          <a href="#">Volunteer</a>
+          <a href="#contact" data-contact-topic="Prayer Request">Prayer Request</a>
+          <a href="#contact" data-contact-topic="Volunteer">Volunteer</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 FAVOUR RESTORATION WORD OF GOD MINISTRIES. All Rights Reserved. Nairobi, Kenya.</p>
-        <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Use</a></p>
+        <p><a href="#about">About Our Ministry</a> &nbsp;·&nbsp; <a href="#contact">Contact the Church</a></p>
       </div>
     </div>
   </footer>
@@ -561,6 +740,25 @@
   <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
     <i class="fa-solid fa-chevron-up"></i>
   </button>
+
+  <div class="music-player" id="musicPlayer">
+    <audio id="backgroundMusic" loop preload="metadata">
+      <source src="worship-instrumental.mp3" type="audio/mpeg" />
+    </audio>
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Play worship instrumental" aria-pressed="false">
+      <i class="fa-solid fa-play" aria-hidden="true"></i>
+      <span>Play music</span>
+    </button>
+    <label class="music-volume" for="musicVolume">
+      <i class="fa-solid fa-volume-low" aria-hidden="true"></i>
+      <span class="sr-only">Music volume</span>
+      <input id="musicVolume" type="range" min="0" max="1" step="0.05" value="0.35" />
+    </label>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
   <script src="script.js"></script>
 </body>
