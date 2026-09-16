@@ -3,14 +3,20 @@
 // =============================================
 
 /* ── PAGE LOADER ─────────────────────────────── */
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  setTimeout(() => {
-    loader.classList.add("hidden");
-    document.body.style.overflow = "visible";
-    startCounters();
-  }, 1200);
-});
+const loader = document.getElementById("loader");
+let loaderHidden = false;
+
+function hideLoader() {
+  if (!loader || loaderHidden) return;
+  loaderHidden = true;
+  loader.classList.add("hidden");
+  document.body.style.overflow = "visible";
+  startCounters();
+}
+
+// Do not wait for every remote image or font. The page is usable while those finish loading.
+window.addEventListener("DOMContentLoaded", () => setTimeout(hideLoader, 450), { once: true });
+window.addEventListener("load", () => setTimeout(hideLoader, 150), { once: true });
 
 /* ── CUSTOM CURSOR ───────────────────────────── */
 const cursor = document.getElementById("cursor");
@@ -61,8 +67,9 @@ window.addEventListener("scroll", () => {
 });
 
 hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("open");
-  mobileMenu.classList.toggle("open");
+  const isOpen = hamburger.classList.toggle("open");
+  mobileMenu.classList.toggle("open", isOpen);
+  hamburger.setAttribute("aria-expanded", String(isOpen));
 });
 
 // Close mobile menu when a link is clicked
@@ -70,6 +77,7 @@ document.querySelectorAll(".mobile-link").forEach((link) => {
   link.addEventListener("click", () => {
     hamburger.classList.remove("open");
     mobileMenu.classList.remove("open");
+    hamburger.setAttribute("aria-expanded", "false");
   });
 });
 
@@ -97,6 +105,11 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     const target = document.querySelector(this.getAttribute("href"));
     if (target) {
       e.preventDefault();
+      const topic = this.dataset.contactTopic;
+      if (topic) {
+        const subject = document.getElementById("subject");
+        if (subject) subject.value = topic;
+      }
       target.scrollIntoView({ behavior: "smooth" });
     }
   });
@@ -126,19 +139,35 @@ const observer = new IntersectionObserver(
 fadeEls.forEach((el) => observer.observe(el));
 
 /* ── ANIMATED COUNTERS ───────────────────────── */
+function animateCounter(element, target, suffix = "") {
+  const duration = 1800;
+  const start = performance.now();
+
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const value = Math.floor(ease * target);
+    element.textContent = value.toLocaleString() + suffix;
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
 function startCounters() {
   const counters = document.querySelectorAll(".stat-num[data-count]");
   counters.forEach((counter) => {
-    const target = parseInt(counter.getAttribute("data-count"));
-    const duration = 1800;
-    const start = performance.now();
-    function step(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3); // ease out cubic
-      counter.textContent = Math.floor(ease * target).toLocaleString() + (target >= 100 ? "+" : "");
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
+    const target = parseInt(counter.getAttribute("data-count"), 10);
+    animateCounter(counter, target, target >= 100 ? "+" : "");
+  });
+
+  const impactCounters = document.querySelectorAll(".metric-number[data-target]");
+  impactCounters.forEach((counter) => {
+    const target = parseInt(counter.getAttribute("data-target"), 10);
+    animateCounter(counter, target);
   });
 }
 
@@ -153,69 +182,90 @@ function openSermonVideo(url) {
   window.open(url, "_blank", "noopener,noreferrer");
 }
 
-/* ── GIVE — AMOUNT SELECTOR ──────────────────── */
-const amountBtns = document.querySelectorAll(".amount-btn");
-const customInputWrap = document.getElementById("customInputWrap");
-const giveTabs = document.querySelectorAll(".give-tab");
-
-amountBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    amountBtns.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-    if (btn.dataset.amount === "custom") {
-      customInputWrap.classList.add("visible");
-      document.getElementById("customAmount").focus();
-    } else {
-      customInputWrap.classList.remove("visible");
-    }
-  });
-});
-
-giveTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    giveTabs.forEach((t) => t.classList.remove("active"));
-    tab.classList.add("active");
-  });
-});
-
-// Give button click
-document.querySelector(".give-btn").addEventListener("click", () => {
-  const activeBtn = document.querySelector(".amount-btn.active");
-  let amount = activeBtn?.dataset.amount;
-  if (amount === "custom") {
-    amount = document.getElementById("customAmount").value;
-    if (!amount) { alert("Please enter a custom amount."); return; }
-  }
-  const freq = document.querySelector(".give-tab.active")?.dataset.freq || "one-time";
-  alert(`Thank you for your generosity!\n\nAmount: KES ${Number(amount).toLocaleString()}\nFrequency: ${freq}\n\nYou will be redirected to our secure payment portal.\n\nMay God bless you abundantly! 🙏`);
-});
-
 /* ── CONTACT FORM ────────────────────────────── */
 function handleSubmit(e) {
   e.preventDefault();
   const btn = document.querySelector(".form-submit");
-  btn.textContent = "Sending…";
+  const form = document.getElementById("contactForm");
+  btn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
   btn.disabled = true;
-
-  // Simulate API call
-  setTimeout(() => {
-    document.getElementById("contactForm").reset();
-    btn.textContent = "Message Sent!";
-    const successEl = document.getElementById("formSuccess");
-    successEl.style.display = "flex";
-    successEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    setTimeout(() => {
-      btn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+  const payload = {
+    firstName: document.getElementById("firstName").value,
+    lastName: document.getElementById("lastName").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    subject: document.getElementById("subject").value,
+    message: document.getElementById("message").value
+  };
+  fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
+    .then(async (response) => {
+      const result = await readApiResponse(response);
+      if (!response.ok) throw new Error(result.error || "Message could not be sent.");
+      form.reset();
+      btn.textContent = "Message Sent!";
+      const successEl = document.getElementById("formSuccess");
+      successEl.textContent = result.message;
+      successEl.style.display = "flex";
+      successEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    })
+    .catch((error) => {
+      alert(error.message.includes("Failed to fetch") ? "Start the website with npm start before sending messages." : error.message);
+    })
+    .finally(() => {
       btn.disabled = false;
-      successEl.style.display = "none";
-    }, 5000);
-  }, 1600);
+      if (document.getElementById("formSuccess").style.display === "none") btn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
+    });
 }
 
 /* ── BACK TO TOP ─────────────────────────────── */
 const backTop = document.getElementById("backTop");
 function toggleBackTop() {
   backTop.classList.toggle("visible", window.scrollY > 400);
+}
+
+/* ── BACKGROUND MUSIC ───────────────────────── */
+const backgroundMusic = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+const musicVolume = document.getElementById("musicVolume");
+
+if (backgroundMusic && musicToggle && musicVolume) {
+  backgroundMusic.volume = Number(musicVolume.value);
+
+  musicToggle.addEventListener("click", async () => {
+    if (backgroundMusic.paused) {
+      try {
+        await backgroundMusic.play();
+      } catch {
+        musicToggle.querySelector("span").textContent = "Music unavailable";
+        return;
+      }
+    } else {
+      backgroundMusic.pause();
+    }
+  });
+
+  backgroundMusic.addEventListener("play", () => {
+    musicToggle.setAttribute("aria-pressed", "true");
+    musicToggle.setAttribute("aria-label", "Pause worship instrumental");
+    musicToggle.querySelector("i").className = "fa-solid fa-pause";
+    musicToggle.querySelector("span").textContent = "Pause music";
+  });
+
+  backgroundMusic.addEventListener("pause", () => {
+    musicToggle.setAttribute("aria-pressed", "false");
+    musicToggle.setAttribute("aria-label", "Play worship instrumental");
+    musicToggle.querySelector("i").className = "fa-solid fa-play";
+    musicToggle.querySelector("span").textContent = "Play music";
+  });
+
+  backgroundMusic.addEventListener("error", () => {
+    musicToggle.disabled = true;
+    musicToggle.querySelector("span").textContent = "Music unavailable";
+  });
+
+  musicVolume.addEventListener("input", () => {
+    backgroundMusic.volume = Number(musicVolume.value);
+  });
 }
 
 /* ── PARALLAX HERO ORBS ──────────────────────── */
@@ -244,5 +294,94 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
     hamburger.classList.remove("open");
     mobileMenu.classList.remove("open");
+    hamburger.setAttribute("aria-expanded", "false");
   }
 });
+
+/* ── NEXT SERVICE COUNTDOWN ──────────────────── */
+const countdownElements = {
+  days: document.getElementById("cdDays"),
+  hours: document.getElementById("cdHours"),
+  minutes: document.getElementById("cdMins"),
+  seconds: document.getElementById("cdSecs")
+};
+
+function nextServiceDate(now) {
+  const schedule = [
+    { day: 0, hour: 8, minute: 30 },
+    { day: 0, hour: 10, minute: 30 },
+    { day: 4, hour: 17, minute: 30 }
+  ];
+  return schedule.map((service) => {
+    const date = new Date(now);
+    const daysAhead = (service.day + 7 - date.getDay()) % 7;
+    date.setDate(date.getDate() + daysAhead);
+    date.setHours(service.hour, service.minute, 0, 0);
+    if (date <= now) date.setDate(date.getDate() + 7);
+    return date;
+  }).sort((a, b) => a - b)[0];
+}
+
+function updateCountdown() {
+  if (!countdownElements.days) return;
+  const difference = Math.max(0, nextServiceDate(new Date()) - Date.now());
+  const pad = (value) => String(value).padStart(2, "0");
+  countdownElements.days.textContent = pad(Math.floor(difference / 86400000));
+  countdownElements.hours.textContent = pad(Math.floor((difference % 86400000) / 3600000));
+  countdownElements.minutes.textContent = pad(Math.floor((difference % 3600000) / 60000));
+  countdownElements.seconds.textContent = pad(Math.floor((difference % 60000) / 1000));
+}
+if (countdownElements.days) {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
+
+/* ── TESTIMONIAL CAROUSEL ────────────────────── */
+const testimonialTrack = document.getElementById("testimonialTrack");
+if (testimonialTrack) {
+  const slides = [...testimonialTrack.querySelectorAll(".testimonial-slide")];
+  const dotsWrap = document.getElementById("testimonialDots");
+  let currentTestimonial = 0;
+  let testimonialTimer;
+  const renderTestimonial = () => {
+    slides.forEach((slide, index) => slide.classList.toggle("active", index === currentTestimonial));
+    [...dotsWrap.children].forEach((dot, index) => dot.classList.toggle("active", index === currentTestimonial));
+  };
+  const goToTestimonial = (index) => {
+    currentTestimonial = (index + slides.length) % slides.length;
+    renderTestimonial();
+  };
+  slides.forEach((_, index) => {
+    const dot = document.createElement("span");
+    dot.setAttribute("role", "button");
+    dot.setAttribute("tabindex", "0");
+    dot.setAttribute("aria-label", `Show testimonial ${index + 1}`);
+    dot.addEventListener("click", () => goToTestimonial(index));
+    dotsWrap.appendChild(dot);
+  });
+  document.getElementById("testimonialPrev").addEventListener("click", () => goToTestimonial(currentTestimonial - 1));
+  document.getElementById("testimonialNext").addEventListener("click", () => goToTestimonial(currentTestimonial + 1));
+  renderTestimonial();
+  testimonialTimer = setInterval(() => goToTestimonial(currentTestimonial + 1), 6000);
+}
+
+/* ── FAQ ACCORDION ──────────────────────────── */
+const faqItems = document.querySelectorAll(".faq-item");
+faqItems.forEach((item) => {
+  const question = item.querySelector(".faq-question");
+  const answer = item.querySelector(".faq-answer");
+  question.addEventListener("click", () => {
+    const isOpen = item.classList.contains("open");
+    faqItems.forEach((other) => {
+      other.classList.remove("open");
+      other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+      other.querySelector(".faq-answer").style.maxHeight = "";
+    });
+    if (!isOpen) {
+      item.classList.add("open");
+      question.setAttribute("aria-expanded", "true");
+      answer.style.maxHeight = `${answer.scrollHeight}px`;
+    }
+  });
+});
+
